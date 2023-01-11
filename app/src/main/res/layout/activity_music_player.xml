@@ -64,6 +64,7 @@
             android:layout_margin="20dp"/>
 
         <RelativeLayout
+            android:id="@+id/rl2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/totaltime"
@@ -93,7 +94,18 @@
                 android:layout_centerInParent="true"/>
 
         </RelativeLayout>
-
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl2">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="#40574D4D"
+                android:text="Text of song">
+            </Button>
+        </RelativeLayout>
 
     </RelativeLayout>
 </RelativeLayout>
