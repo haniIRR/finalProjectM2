@@ -33,7 +33,7 @@
 
                 <TextView
                     android:id="@+id/texttitle"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textStyle="bold"
                     android:textSize="25sp"
                     android:layout_margin="10dp"
@@ -46,10 +46,12 @@
                     android:layout_margin="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="song date"/>
+                    android:text="song date"
+                    android:textColor="@color/white"/>
 
                 <TextView
                     android:id="@+id/textname"
+                    android:textColor="@color/white"
                     android:layout_margin="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
