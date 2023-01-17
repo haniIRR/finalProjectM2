@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">FinalProjectM2</string>
     <string name="imagesong">image song</string>
+    <string name="api_key">f6465dd551ec610b6e75c4b56e1804b0</string>
 </resources>

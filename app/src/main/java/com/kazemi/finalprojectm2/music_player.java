@@ -3,6 +3,7 @@ package com.kazemi.finalprojectm2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -26,5 +27,12 @@ public class music_player extends AppCompatActivity {
         musicimg=findViewById(R.id.img_music_player);
         nextbtn=findViewById(R.id.nextbtn);
         prebtn=findViewById(R.id.previousbtn);
+
+        puseplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                puseplay.setImageResource(R.drawable.playsong_icon);
+            }
+        });
     }
 }

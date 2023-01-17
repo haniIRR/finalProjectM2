@@ -11,11 +11,30 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.kazemi.finalprojectm2.Models.Album;
+import com.kazemi.finalprojectm2.Models.Artist;
+import com.kazemi.finalprojectm2.Models.Cover;
+import com.kazemi.finalprojectm2.Models.Image;
+import com.kazemi.finalprojectm2.Models.Result;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
+
 public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
     SongData [] songData;
     Context context;
+    private List<Result> resultList;
+    private  Cover cover;
 
-    public SongAdapter(SongData[] songData,MainActivity activity) {
+    public SongAdapter(Cover cover) {
+        this.cover = cover;
+    }
+
+    public SongAdapter(List<Result> resultList) {
+        this.resultList = resultList;
+    }
+
+    public SongAdapter(SongData[] songData, MainActivity activity) {
         this.songData=songData;
         this.context=activity;
     }
@@ -31,16 +50,21 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final SongData songDataList=songData[position];
-        holder.txttitle.setText(songDataList.getSongtitle());
-        holder.txtname.setText(songDataList.getSongname());
-        holder.txtdate.setText(songDataList.getSongdate());
-        holder.imgsong.setImageResource(songDataList.getSongimage());
+        //final SongData songDataList=songData[position];
+        //holder.txttitle.setText(songDataList.getSongtitle());
+        //holder.txtname.setText(songDataList.getSongname());
+        //holder.txtdate.setText(songDataList.getSongdate());
+        //holder.imgsong.setImageResource(songDataList.getSongimage());
+
+        holder.txttitle.setText(resultList.get(position).getTitle());
+        holder.txtname.setText((CharSequence) resultList.get(position).getArtists());
+        holder.txtdate.setText((CharSequence) resultList.get(position).getReleaseDate());
+        Picasso.get().load(cover.getUrl()).into(holder.imgsong);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,songDataList.getSongname(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,resultList.get(holder.getAdapterPosition()).getTitle(),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -48,7 +72,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return songData.length;
+        return resultList.size();
     }
 
     public  class ViewHolder extends RecyclerView.ViewHolder{
