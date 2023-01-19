@@ -1,4 +1,4 @@
-package com.kazemi.finalprojectm2;
+package com.kazemi.finalprojectm2.Song;
 
 public class SongData {
     private String songtitle;
