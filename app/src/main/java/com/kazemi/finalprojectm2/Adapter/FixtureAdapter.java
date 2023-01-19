@@ -37,12 +37,12 @@ public class FixtureAdapter extends RecyclerView.Adapter<FixtureViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull FixtureViewHolder holder, int position) {
 
-        final SongData data = list.get(position);
+        final SongData songData = list.get(position);
 
-        Picasso.get().load(data.image.toString()).into(holder.imgsong);
-        holder.songtitle.setText(data.title);
-        holder.songdate.setText(data.releaseDate.toString());
-        holder.songername.setText(data.artists.toString());
+        Picasso.get().load(songData.image.toString()).into(holder.imgsong);
+        holder.songtitle.setText(songData.title);
+        holder.songdate.setText(songData.releaseDate.toString());
+        holder.songername.setText(songData.artists.toString());
 
 
 
@@ -50,7 +50,13 @@ public class FixtureAdapter extends RecyclerView.Adapter<FixtureViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(v.getContext(), PlayMusic.class);
-                i.putExtra("song",holder.songtitle.getText().toString());
+                i.putExtra("songName",holder.songtitle.getText().toString());
+                i.putExtra("songerName",holder.songername.getText().toString());
+                i.putExtra("date",holder.songdate.getText().toString());
+                i.putExtra("imgurl",holder.imgsong.toString());
+
+                v.getContext().startActivity(i);
+
             }
         });
 

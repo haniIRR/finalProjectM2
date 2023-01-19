@@ -41,7 +41,7 @@ public class RequestManager {
     }
 
     private interface CallFixture {
-        @GET("match")
+        @GET("song/new/0/11")
         Call<FixtureResponse> callFixture();
     }
 }

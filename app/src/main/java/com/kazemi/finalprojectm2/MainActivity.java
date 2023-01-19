@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
     }
     private final OnFetchDataListener listener = new OnFetchDataListener() {
 
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         public void didFetch(FixtureResponse response, String status) {
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL , false));
-            FixtureAdapter adapter = new FixtureAdapter(MainActivity.this, response.data);
+            FixtureAdapter adapter = new FixtureAdapter(MainActivity.this, response.results);
             recyclerView.setAdapter(adapter);
         }
 
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, status, Toast.LENGTH_SHORT).show();
         }
     };
+
 
 
 }
