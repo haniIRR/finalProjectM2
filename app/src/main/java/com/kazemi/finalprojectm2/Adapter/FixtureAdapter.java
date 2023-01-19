@@ -43,6 +43,9 @@ public class FixtureAdapter extends RecyclerView.Adapter<FixtureViewHolder> {
         holder.songtitle.setText(songData.title);
         holder.songdate.setText(songData.releaseDate.toString());
         holder.songername.setText(songData.artists.toString());
+        holder.songurl.setText(songData.audio.medium.url);
+        holder.imgsongurl.setText(songData.album.image.toString());
+
 
 
 
@@ -52,8 +55,9 @@ public class FixtureAdapter extends RecyclerView.Adapter<FixtureViewHolder> {
                 Intent i=new Intent(v.getContext(), PlayMusic.class);
                 i.putExtra("songName",holder.songtitle.getText().toString());
                 i.putExtra("songerName",holder.songername.getText().toString());
-                i.putExtra("date",holder.songdate.getText().toString());
-                i.putExtra("imgurl",holder.imgsong.toString());
+                i.putExtra("url",holder.songurl.getText().toString());
+                i.putExtra("imgurl",holder.imgsongurl.toString());
+
 
                 v.getContext().startActivity(i);
 
@@ -72,11 +76,11 @@ public class FixtureAdapter extends RecyclerView.Adapter<FixtureViewHolder> {
 
 class FixtureViewHolder extends RecyclerView.ViewHolder {
     ImageView imgsong;
-    TextView songtitle, songdate, songername ;
+    TextView songtitle, songdate, songername,songurl,imgsongurl ;
 
     public FixtureViewHolder(@NonNull View itemView) {
         super(itemView);
-
+        //songurl=itemView.findViewById(R.id.)
         songdate=itemView.findViewById(R.id.textdate);
         songername=itemView.findViewById(R.id.textname);
         songtitle=itemView.findViewById(R.id.texttitle);

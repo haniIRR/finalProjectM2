@@ -44,24 +44,30 @@
             android:backgroundTint="@color/white"/>
 
         <TextView
+            android:id="@+id/currenttime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/currenttime"
-            android:layout_alignParentStart="true"
             android:layout_below="@id/seekbar"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:text="0:00"
-            android:textColor="@color/white"
-            android:layout_margin="20dp"/>
+            android:textColor="@color/white" />
 
         <TextView
+            android:id="@+id/totaltime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/totaltime"
             android:layout_below="@id/seekbar"
             android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:text="0:00"
-            android:textColor="@color/white"
-            android:layout_margin="20dp"/>
+            android:textColor="@color/white" />
 
         <RelativeLayout
             android:id="@+id/rl2"
@@ -87,11 +93,18 @@
                 android:layout_alignParentEnd="true"/>
 
             <ImageView
-                android:id="@+id/pause_play"
+                android:id="@+id/pause"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:src="@drawable/pausesong_icon" />
+            <ImageView
+                android:id="@+id/play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/playsong_icon"
+                android:visibility="invisible"/>
 
         </RelativeLayout>
         <RelativeLayout
