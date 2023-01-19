@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void didFetch(FixtureResponse response, String status) {
             recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL , false));
+            //recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL , false));
             FixtureAdapter adapter = new FixtureAdapter(MainActivity.this, response.results);
             recyclerView.setAdapter(adapter);
         }
