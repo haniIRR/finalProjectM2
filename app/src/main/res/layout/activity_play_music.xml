@@ -76,15 +76,15 @@
             android:layout_below="@id/totaltime"
             android:padding="20dp">
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/previousbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/previoussong_icon"
                 android:layout_centerVertical="true"
-                android:layout_alignParentStart="true"/>
+                android:layout_alignParentStart="true" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/nextbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -92,19 +92,20 @@
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"/>
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/pause"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:src="@drawable/pausesong_icon" />
-            <ImageView
+
+            <ImageButton
                 android:id="@+id/play"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:src="@drawable/playsong_icon"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
 
         </RelativeLayout>
         <RelativeLayout

@@ -1,5 +1,6 @@
 package com.kazemi.finalprojectm2.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -22,6 +23,10 @@ import java.util.List;
 public class FixtureAdapter extends RecyclerView.Adapter<FixtureViewHolder> {
     Context context;
     List<SongData> list;
+    ArrayList<String>arrayListurl=new ArrayList<>();
+    ArrayList<String>arrayListtitle=new ArrayList<>();
+    ArrayList<String>arrayListartists=new ArrayList<>();
+    ArrayList<String>arrayListimage=new ArrayList<>();
 
     public FixtureAdapter(Context context, ArrayList<SongData> songlist) {
         this.context = context;
@@ -35,7 +40,7 @@ public class FixtureAdapter extends RecyclerView.Adapter<FixtureViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FixtureViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FixtureViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         final SongData songData = list.get(position);
 
@@ -49,6 +54,18 @@ public class FixtureAdapter extends RecyclerView.Adapter<FixtureViewHolder> {
 
 
 
+        if (!arrayListurl.contains(songData.audio.medium.url))
+            arrayListurl.add(songData.audio.medium.url);
+        if (!arrayListtitle.contains(songData.title))
+            arrayListtitle.add(songData.title);
+        if (!arrayListartists.contains(songData.artists))
+            arrayListartists.add(songData.artists.toString());
+        if (!arrayListimage.contains(songData.album.image))
+            arrayListimage.add(songData.album.image.toString());
+
+
+
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +74,12 @@ public class FixtureAdapter extends RecyclerView.Adapter<FixtureViewHolder> {
                 i.putExtra("songerName",holder.songername.getText().toString());
                 i.putExtra("url",holder.songurl.getText().toString());
                 i.putExtra("imgurl",holder.imgsongurl.toString());
+
+                i.putExtra("arrayListurl",arrayListurl);
+                i.putExtra("arrayListartists",arrayListartists);
+                i.putExtra("arrayListimage",arrayListimage);
+                i.putExtra("arrayListtitle",arrayListtitle);
+                i.putExtra("position",String.valueOf(position));
 
 
                 v.getContext().startActivity(i);
